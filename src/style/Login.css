@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-size: 1.6rem; */
+}
+
+.loginSec {
+    height: 92.4vh;
+    margin-left: 200px;
+}
+
+.loginDiv {
+    /* border: 2px solid red; */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #CED4CA;
+}
+
+.loginFormDiv {
+    /* border: 2px solid black; */
+    background: white;
+    height: 70%;
+    width: 26rem;
+    padding: 3rem;
+    border-radius: 2rem;
+    position: relative;
+}
+
+.loginFormDiv input {
+    width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    padding: 0.3rem 0.6rem;
+    background: #CED4CA;
+    border: none;
+    outline: none;
+}
+
+.visibilityIcon {
+    position: absolute;
+    top: 10.8rem;
+    right: 4rem;
+    cursor: pointer;
+    opacity: 0.5;
+    transform: scale(1.2);
+}
+
+.vIcon {
+    position: absolute;
+    top: 17rem;
+    right: 4rem;
+    cursor: pointer;
+    opacity: 0.5;
+    transform: scale(1.2);
+}
+
+.errorMsg {
+    color: red;
+    display: block;
+    margin-top: -1.5rem;
+    margin-bottom: 1rem;
+}
+
+.loginPageBtn {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    color: white;
+    background: #198754;
+    border: 2px solid #198754;
+}
+
+.loginPageBtn:hover,
+.signupBtn:hover {
+    color: #198754;
+    background: white;
+}
+
+.googleBtn {
+    font-size: 1.1rem;
+    padding: 0.4rem;
+    margin-top: 1rem;
+    color: white;
+    background: #EA4335;
+    border: 2px solid #EA4335;
+    border-radius: 4px;
+}
+
+.googleBtn:hover {
+    color: #EA4335;
+    background: white;
+}
+
+.not_has_account {
+    text-align: center;
+    /* margin-top: 2rem; */
+}
+
+.not_has_account button {
+    background: white;
+    font-weight: 500;
+}
+
+/* MEDIA QUERY */
+@media only screen and (max-width: 600px) {
+    .loginSec {
+        margin-left: 0;
+    }
+
+    .loginFormDiv {
+        /* height: 75%; */
+        width: 24rem;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .loginSec {
+        margin-left: 0;
+    }
+
+    /* .loginFormDiv {
+        height: 75%;
+    } */
+}
