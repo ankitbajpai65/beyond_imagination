@@ -8,7 +8,7 @@ import Signup from './Components/Signup';
 import { Routes, Route } from 'react-router-dom';
 import UserProvider from './Components/UserProvider';
 function App() {
-  const [openSidebar, setOpenSidebar] = useState(false);
+  const [openSidebar, setOpenSidebar] = useState(true);
   return (
     <>
       <UserProvider>
