@@ -2,11 +2,13 @@ import React, { useState, useEffect, useContext } from 'react'
 import '../style/Home.css';
 import { useNavigate } from 'react-router-dom';
 import { Chart as ChartJS, ArcElement } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Pie } from 'react-chartjs-2';
 import { auth } from './firebase.jsx';
 import { UserContext } from './UserProvider';
 
 ChartJS.register(ArcElement);
+ChartJS.register(ChartDataLabels);
 
 const Home = () => {
     const [isLogin, setIsLogin] = useState(false)
@@ -46,10 +48,27 @@ const Home = () => {
     }
     const options = {
         plugins: {
-            legend: {
-                display: false,
-            }
-        }
+            datalabels: {
+                color: "#fffff",
+                formatter: (value, context) => {
+                    let sum = 0;
+                    let dataArr = context.chart.data.datasets[0].data;
+                    dataArr.map((data) => {
+                        sum += data;
+                    });
+                    let percentage = ((value * 100) / sum).toFixed(2) + '%';
+                    return [
+                        `${context.chart.data.labels[context.dataIndex]}`,
+                        `${percentage}`
+                    ];
+                },
+                textAlign: 'center',
+                color: '#fff',
+                font: {
+                    size: 15
+                }
+            },
+        },
     }
     const redirectToLogin = () => {
         navigate('/login')
@@ -100,7 +119,7 @@ const Home = () => {
                     !isLogin ?
                         (
                             <div className='d-flex flex-column'>
-                                <h1 className="text-dark">Please Login to view the details</h1>
+                                <h1 className="text-dark">Please login to access the data🙂</h1>
                                 <button className="btn btn-primary loginBtn mt-3" onClick={redirectToLogin}>Login</button>
                             </div>
                         )
@@ -114,11 +133,11 @@ const Home = () => {
                                     <span>
                                         <p>TOTAL USERS = {employeeData.length}</p>
                                         <p>MALE = {employeesInfo.male}</p>
-                                        <p>FEMALE = {employeesInfo.male}</p>
+                                        <p>FEMALE = {employeesInfo.female}</p>
                                     </span>
                                 </div>
                                 <hr />
-                                <div className="text-center">
+                                <div className="text-center mt-4">
                                     <p>EMPLOYMENT TYPE</p>
                                     <Pie data={employmentTypeData} options={options} className="piechart"></Pie>
                                     <span>

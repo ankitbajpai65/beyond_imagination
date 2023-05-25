@@ -9,8 +9,6 @@ const Navbar = () => {
     const navigate = useNavigate();
     const [displayLogoutBtn, setDisplayLogoutBtn] = useState(false);
 
-    const user = useContext(UserContext);
-
     const redirectToLogin = () => {
         navigate('/login')
     }
@@ -41,12 +39,11 @@ const Navbar = () => {
                 {displayLogoutBtn === true
                     ?
                     <div className="d-flex justify-space-evenly">
-                        <p className="text-light me-5 mb-0 mt-2">{user.name}</p>
-                        <button className="btn btn-secondary" onClick={handleLogout}>Logout</button>
+                        <p className="text-light me-5 mb-0 mt-2">{auth.currentUser.displayName}</p>
+                        <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
                     </div>
                     :
                     <button className="btn btn-primary" onClick={redirectToLogin}>Login</button>
-
                 }
             </div>
             <ToastContainer />

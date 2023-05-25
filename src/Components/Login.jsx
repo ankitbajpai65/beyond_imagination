@@ -96,7 +96,7 @@ const Login = () => {
 
                         <div className="not_has_account">
                             <span>Need an account? </span>
-                            <button className="btn" onClick={signupClicked}>Signup</button>
+                            <button className="btn mb-2" onClick={signupClicked}>Signup</button>
                         </div>
                     </div>
                 </div>
