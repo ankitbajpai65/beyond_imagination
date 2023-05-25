@@ -14,7 +14,7 @@ const Navbar = ({ openSidebar, setOpenSidebar }) => {
         navigate('/login')
     }
     const handleLogout = () => {
-        console.log('logout');
+        // console.log('logout');
         signOut(auth).then(() => {
             toast.success("Your have been successfully logged out!", {
                 position: "top-center",
@@ -25,7 +25,6 @@ const Navbar = ({ openSidebar, setOpenSidebar }) => {
         });
     }
     const handleSidebar = () => {
-        console.log(`handlesidebar runs ${openSidebar}`);
         setOpenSidebar(!openSidebar)
     }
     useEffect(() => {
