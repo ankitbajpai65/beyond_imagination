@@ -22,7 +22,7 @@ const Login = () => {
     const inputEvent = (e) => {
         const name = e.target.name;
         const value = e.target.value;
-        console.log(name, value);
+        // console.log(name, value);
         setUser({ ...user, [name]: value });
     }
     const handleSubmission = () => {
@@ -33,7 +33,6 @@ const Login = () => {
             });
             return;
         }
-        console.log(user);
         setSubmitBtnDisable(true);
         signInWithEmailAndPassword(auth, user.email, user.pass).then(
             async (res) => {
@@ -41,8 +40,7 @@ const Login = () => {
                 navigate('/');
             }).catch((err) => {
                 setSubmitBtnDisable(false);
-                console.log("error is", err)
-                // alert(err.message);
+                // console.log("error is", err)
                 if (err.message === "Firebase: Error (auth/invalid-email).")
                     setInvalidMail("The email id is invalid!")
                 if (err.message === "Firebase: Error (auth/user-not-found).")

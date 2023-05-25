@@ -2,9 +2,9 @@ import React, { useState, useEffect, useContext } from 'react'
 import '../style/Home.css';
 import { useNavigate } from 'react-router-dom';
 import { Chart as ChartJS, ArcElement } from 'chart.js';
-import { Pie } from 'react-chartjs-2'
-import { auth } from './firebase.jsx'
-import { UserContext } from './UserProvider'
+import { Pie } from 'react-chartjs-2';
+import { auth } from './firebase.jsx';
+import { UserContext } from './UserProvider';
 
 ChartJS.register(ArcElement);
 
@@ -18,13 +18,9 @@ const Home = () => {
         partTime: '',
         dailyWage: ''
     })
-    const navigate = useNavigate()
-    const user = useContext(UserContext);
-    // console.log(auth.currentUser);
+    const navigate = useNavigate();
 
-    setTimeout(() => {
-        console.log(user);
-    }, 3000)
+    const user = useContext(UserContext);
 
     const genderData = {
         labels: ['Male', 'Female'],
@@ -68,11 +64,10 @@ const Home = () => {
     })
     useEffect(() => {
         fetch(`https://employee-rest-api.onrender.com/`).then((response) => {
-            // console.log(response.json())
             return response.json();
         }).then((res) => {
             let result = res;
-            console.log(result);
+            // console.log(result);
             setEmployeeData(result.data)
         }).catch((error) => {
             console.log(error)

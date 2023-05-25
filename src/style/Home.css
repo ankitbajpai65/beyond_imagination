@@ -14,7 +14,6 @@
     border-radius: 10px;
 }
 
-
 .info div {
     display: flex;
     height: 14rem;
@@ -23,7 +22,7 @@
 }
 
 .piechart {
-    height: 100%;
+    height: 100% !important;
 }
 
 .loginBtn {

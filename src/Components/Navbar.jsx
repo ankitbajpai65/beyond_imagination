@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { signOut } from "firebase/auth";
 import { auth } from './firebase'
+import { UserContext } from './UserProvider';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Navbar = () => {
     const navigate = useNavigate();
     const [displayLogoutBtn, setDisplayLogoutBtn] = useState(false);
+
+    const user = useContext(UserContext);
 
     const redirectToLogin = () => {
         navigate('/login')
@@ -14,7 +17,6 @@ const Navbar = () => {
     const handleLogout = () => {
         console.log('logout');
         signOut(auth).then(() => {
-            // alert(`You are successfully logged out!`)
             toast.success("Your have been successfully logged out!", {
                 position: "top-center",
                 theme: "dark"
@@ -25,7 +27,6 @@ const Navbar = () => {
     }
     useEffect(() => {
         auth.onAuthStateChanged((user) => {
-            // console.log(user);
             if (user)
                 setDisplayLogoutBtn(true);
             else
@@ -40,7 +41,7 @@ const Navbar = () => {
                 {displayLogoutBtn === true
                     ?
                     <div className="d-flex justify-space-evenly">
-                        <p className="text-light me-5 mb-0 mt-2">{auth.currentUser.displayName}</p>
+                        <p className="text-light me-5 mb-0 mt-2">{user.name}</p>
                         <button className="btn btn-secondary" onClick={handleLogout}>Logout</button>
                     </div>
                     :

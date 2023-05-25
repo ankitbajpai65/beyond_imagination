@@ -23,7 +23,7 @@ const Signup = () => {
     const inputEvent = (e) => {
         const name = e.target.name;
         const value = e.target.value;
-        console.log(name, value);
+        // console.log(name, value);
         setUser({ ...user, [name]: value });
     }
     const handleSubmission = () => {
@@ -35,7 +35,6 @@ const Signup = () => {
             });
             return;
         }
-        console.log(user);
         setSubmitBtnDisable(true);
         createUserWithEmailAndPassword(auth, user.email, user.pass).then(
             async (res) => {
@@ -44,12 +43,10 @@ const Signup = () => {
                 await updateProfile(x, {
                     displayName: user.fullname
                 })
-                console.log(x);
                 navigate('/');
             }).catch((err) => {
                 setSubmitBtnDisable(false);
-                console.log("error is", err)
-                // alert(err.message);
+                // console.log("error is", err)
                 if (err.message === "Firebase: Error (auth/invalid-email).")
                     setInvalidMail("The email id is invalid!")
                 if (err.message === "Firebase: Error (auth/email-already-in-use).")
