@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-size: 1.6rem; */
 }
 
 .loginSec {
@@ -11,7 +10,6 @@
 }
 
 .loginDiv {
-    /* border: 2px solid red; */
     height: 100%;
     display: flex;
     align-items: center;
@@ -20,7 +18,6 @@
 }
 
 .loginFormDiv {
-    /* border: 2px solid black; */
     background: white;
     height: 70%;
     width: 26rem;
@@ -96,7 +93,6 @@
 
 .not_has_account {
     text-align: center;
-    /* margin-top: 2rem; */
 }
 
 .not_has_account button {
@@ -120,8 +116,4 @@
     .loginSec {
         margin-left: 0;
     }
-
-    /* .loginFormDiv {
-        height: 75%;
-    } */
 }

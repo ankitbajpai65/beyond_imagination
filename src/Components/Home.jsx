@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import '../style/Home.css';
 import { useNavigate } from 'react-router-dom';
-import { Chart as ChartJS, ArcElement, Legend } from 'chart.js';
+import { Chart as ChartJS, ArcElement } from 'chart.js';
 import { Pie } from 'react-chartjs-2'
 import { auth } from './firebase.jsx'
 import { UserContext } from './UserProvider'
