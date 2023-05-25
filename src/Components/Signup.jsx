@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import '../style/Login.css'
+import React, { useState } from 'react';
+import '../style/Login.css';
 import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from './firebase'
+import { auth } from './firebase';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

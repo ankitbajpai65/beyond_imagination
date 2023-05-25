@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import '../style/Login.css'
+import React, { useState } from 'react';
+import '../style/Login.css';
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
-import { auth, provider } from './firebase'
+import { auth, provider } from './firebase';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

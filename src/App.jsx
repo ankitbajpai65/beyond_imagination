@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './Components/Navbar';
 import Sidebar from './Components/Sidebar';
@@ -7,11 +8,12 @@ import Signup from './Components/Signup';
 import { Routes, Route } from 'react-router-dom';
 import UserProvider from './Components/UserProvider';
 function App() {
+  const [openSidebar, setOpenSidebar] = useState(false);
   return (
     <>
       <UserProvider>
-        <Navbar />
-        <Sidebar />
+        <Navbar openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
+        <Sidebar openSidebar={openSidebar} />
         <Routes>
           <Route index element={<Home />} />
           <Route path="/login" element={<Login />} />

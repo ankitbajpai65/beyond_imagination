@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import React, { useState, useEffect, useContext } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import { signOut } from "firebase/auth";
-import { auth } from './firebase'
+import { auth } from './firebase';
 import { UserContext } from './UserProvider';
 import { ToastContainer, toast } from 'react-toastify';
+import '../style/Navbar.css'
 
-const Navbar = () => {
+const Navbar = ({ openSidebar, setOpenSidebar }) => {
     const navigate = useNavigate();
     const [displayLogoutBtn, setDisplayLogoutBtn] = useState(false);
 
@@ -23,6 +24,10 @@ const Navbar = () => {
             alert(error.message);
         });
     }
+    const handleSidebar = () => {
+        console.log(`handlesidebar runs ${openSidebar}`);
+        setOpenSidebar(!openSidebar)
+    }
     useEffect(() => {
         auth.onAuthStateChanged((user) => {
             if (user)
@@ -34,8 +39,8 @@ const Navbar = () => {
     return (
         <nav className="navbar bg-body-tertiary bg-dark">
             <div className="container-fluid">
-                <Link className="navbar-brand text-light ms-4" to="/">Beyond Imagination</Link>
-
+                <Link className="navbar-brand text-light ms-4 title" to="/">Beyond Imagination</Link>
+                <i className="bi bi-list hamburger ms-3" onClick={handleSidebar}></i>
                 {displayLogoutBtn === true
                     ?
                     <div className="d-flex justify-space-evenly">
